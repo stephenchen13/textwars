@@ -78,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-postgres-adapter
+  dm-serializer
   json
   sinatra
   thin
