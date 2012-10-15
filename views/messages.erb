@@ -39,7 +39,10 @@
         <script type="text/javascript">
           (function poll() {
             $.ajax({ url: "http://stephen-messages.herokuapp.com/all.json", success: function(data) {
-              console.log(data);
+              for (var i = 0; i < data.length; i++) {
+                console.log(data[i].body);
+              }
+              console.log(data.length);
             }, error: function (data) {
               $.each(data, function(index, element) {
                 console.log("error");
