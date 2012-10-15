@@ -39,21 +39,24 @@
         <!-- TODO: Add messages to page -->
         
         <script type="text/javascript">
-        $.ajax({ 
-    type: 'GET', 
-    url: 'http://stephen-messages.herokuapp.com/all',
-    dataType: 'json',
-    error: function (data) {
-      console.log(data);
-    },
-    success: function (data) {
-      $('.messages').empty(); 
-      $.each(data, function(index, element) {
-        $('.messages').append('<div class="text receive"><div class="reflect"></div><p>'+element.body+'</p></div>');
-      });
-    }
-});
-
+        (function poll() {
+          $.ajax({ 
+            type: 'GET', 
+            url: 'http://stephen-messages.herokuapp.com/all',
+            dataType: 'json',
+            error: function (data) {
+              console.log(data);
+            },
+            success: function (data) {
+              $('.messages').empty(); 
+              $.each(data, function(index, element) {
+                $('.messages').append('<div class="text receive"><div class="reflect"></div><p>'+element.body+'</p></div>');
+              });
+            },
+            complete: poll,
+            timeout: 3000000
+          });
+        })();
           // (function poll() {
           //   $.ajax({ url: "http://stephen-messages.herokuapp.com/all.json", success: function(data) {
           //     for (var i = 0; i < data.length; i++) {
