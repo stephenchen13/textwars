@@ -42,9 +42,11 @@
               console.log('success');
             }, error: function (data) {
               $.each(data, function(index, element) {
+                console.log(index);
+                console.log(element);
                 console.log(element.body);
               });
-            }, dataType: "json", complete: poll, timeout: 30000})
+            }, dataType: "json", complete: poll, timeout: 300000})
           })();
         </script>
       </div>
