@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'json'
 require 'data_mapper'
+require 'dm-serializer'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'])
 
@@ -14,7 +15,7 @@ end
 get '/all.json' do
 		@messages = Message.all?
 		@messages.to_json.to_s
-	end
+end
 
 get '/reset' do
   DataMapper.auto_migrate!
