@@ -28,7 +28,7 @@
           <p>A message received.</p>
         </div>
         -->
-        <div class="text receive">
+        <div class="messages">
         </div>
 <!--         <% @messages.each do |m| %>
           <div class="text receive">
@@ -47,9 +47,9 @@
       console.log(data);
     },
     success: function (data) {
-      $('.receive').empty(); 
+      $('.messages').empty(); 
       $.each(data, function(index, element) {
-        $('.receive').append('<div class="reflect"></div><p>'+element.body+'</p>');
+        $('.messages').append('<div class="text receive"><div class="reflect"></div><p>'+element.body+'</p></div>');
       });
     }
 });
