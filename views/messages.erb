@@ -44,8 +44,11 @@
     error: function (data) {
       console.log(data);
     },
-    success: function (data) { 
-      console.log(data.length);
+    success: function (data) {
+      $('.receive').empty(); 
+      $.each(data, function(index, element) {
+        $('.receive').append('<div class="reflect"></div><p>element.body</p>');
+      });
     }
 });
 
