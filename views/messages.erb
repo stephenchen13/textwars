@@ -47,7 +47,7 @@
     success: function (data) {
       $('.receive').empty(); 
       $.each(data, function(index, element) {
-        $('.receive').append('<div class="reflect"></div><p>element.body</p>');
+        $('.receive').append('<div class="reflect"></div><p>'+element.body+'</p>');
       });
     }
 });
