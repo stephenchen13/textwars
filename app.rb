@@ -35,6 +35,7 @@ class Message
   
   # TODO: Use this class as a table in the database
   include DataMapper::Resource
+  include DataMapper::Serialize
 
   property :id, Serial
   property :body, Text
