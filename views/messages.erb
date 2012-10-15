@@ -37,19 +37,31 @@
         <!-- TODO: Add messages to page -->
         
         <script type="text/javascript">
-          (function poll() {
-            $.ajax({ url: "http://stephen-messages.herokuapp.com/all.json", success: function(data) {
-              for (var i = 0; i < data.length; i++) {
-                //console.log(data[i].body);
-              }
-              console.log(data.length);
-            }, error: function (data) {
-              console.log(data);
-              $.each(data, function(index, element) {
-                //console.log("error");
-              });
-            }, dataType: "json" /*, complete: poll*/, timeout: 30000000})
-          })();
+        $.ajax({ 
+    type: 'GET', 
+    url: 'http://stephen-messages.herokuapp.com/all.json',
+    dataType: 'json',
+    error: function (data) {
+      console.log("error");
+    },
+    success: function (data) { 
+      console.log(data.length);
+    }
+});
+
+          // (function poll() {
+          //   $.ajax({ url: "http://stephen-messages.herokuapp.com/all.json", success: function(data) {
+          //     for (var i = 0; i < data.length; i++) {
+          //       //console.log(data[i].body);
+          //     }
+          //     console.log(data.length);
+          //   }, error: function (data) {
+          //     console.log(data);
+          //     $.each(data, function(index, element) {
+          //       //console.log("error");
+          //     });
+          //   }, dataType: "json" /*, complete: poll*/, timeout: 30000000})
+          // })();
         </script>
       </div>
     </div>
