@@ -44,8 +44,9 @@
               }
               console.log(data.length);
             }, error: function (data) {
+              console.log(data);
               $.each(data, function(index, element) {
-                console.log("error");
+                //console.log("error");
               });
             }, dataType: "json", complete: poll, timeout: 30000000})
           })();
