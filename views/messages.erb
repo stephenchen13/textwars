@@ -3,6 +3,7 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="style.css" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
   </head>
   <body>
     <div class="iPhone">
@@ -35,6 +36,13 @@
         <% end %>
         <!-- TODO: Add messages to page -->
         
+        <script type="text/javascript">
+          (function poll() {
+            $.ajax({ url: "http://stephen-messages.herokuapp.com/", success: function(data) {
+              alert('success');
+            }, dataType: "json", complete: poll, timeout: 30000})
+          })();
+        </script>
       </div>
     </div>
   </body>
