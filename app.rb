@@ -14,7 +14,7 @@ get '/' do
 end
 
 get '/all' do
-		@messages = Message.create(:body => "test body")
+		@messages = Message.all
 		@messages.to_json
 end
 
