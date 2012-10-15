@@ -15,7 +15,7 @@ end
 get '/all.json' do
 	content_type :json do
 		@messages = Message.all?
-		@messages.to_json.to_s
+		@messages.to_json
 	end
 end
 
