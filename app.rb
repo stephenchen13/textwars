@@ -14,6 +14,7 @@ end
 get '/all.json' do
 		@messages = Message.all?
 		@messages.to_json
+		{:key1 => 'value1', :key2 => 'value 2'}.to_json
 end
 
 get '/reset' do
