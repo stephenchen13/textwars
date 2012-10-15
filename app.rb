@@ -15,7 +15,7 @@ end
 
 get '/all' do
 		@messages = Message.create(:body => "test body")
-		json(@messages.to_json)
+		@messages.to_json
 end
 
 get '/reset' do
