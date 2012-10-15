@@ -12,10 +12,8 @@ get '/' do
 end
 
 get '/all.json' do
-	content_type :json do
 		@messages = Message.all?
 		@messages.to_json
-	end
 end
 
 get '/reset' do
