@@ -41,7 +41,9 @@
             $.ajax({ url: "http://stephen-messages.herokuapp.com/all.json", success: function(data) {
               console.log('success');
             }, error: function (data) {
-              console.log(data);
+              $.each(data, function(index, element) {
+                console.log(element.body);
+              });
             }, dataType: "json", complete: poll, timeout: 30000})
           })();
         </script>
