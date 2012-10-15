@@ -13,11 +13,9 @@ get '/' do
   erb :messages
 end
 
-get '/all.json' do
-	content_type :json do
+get '/all' do
 		@messages = Message.create(:body => "test body")
 		json(@messages.to_json)
-	end
 end
 
 get '/reset' do
