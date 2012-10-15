@@ -1,6 +1,7 @@
 # app.rb
 
 require 'sinatra'
+require 'sinatra/json'
 require 'json'
 require 'data_mapper'
 require 'dm-serializer'
@@ -15,7 +16,7 @@ end
 get '/all.json' do
 	content_type :json do
 		@messages = Message.create(:body => "test body")
-		@messages.to_json
+		json(@messages.to_json)
 	end
 end
 
