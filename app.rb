@@ -14,7 +14,7 @@ end
 
 get '/all.json' do
 	content_type :json do
-		@messages = Message.first
+		@messages = Message.create(:body => "test body")
 		@messages.to_json
 	end
 end
