@@ -1,6 +1,8 @@
 source :rubygems
 
 gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sinatra'
 gem 'thin'
 gem 'json'
 
