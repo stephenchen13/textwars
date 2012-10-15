@@ -11,6 +11,13 @@ get '/' do
   erb :messages
 end
 
+get '/all.json' do
+	content_type :json do
+		@messages = Message.all?
+		@messages.to_json
+	end
+end
+
 get '/reset' do
   DataMapper.auto_migrate!
   "Messages reset!"
