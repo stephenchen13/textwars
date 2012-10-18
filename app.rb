@@ -11,6 +11,7 @@ post '/' do
   @wait_time = AlgorithmHelper.calculate_wait(params[:she_likes_me], params[:you_like_her],
   	params[:your_rank], params[:her_rank], params[:her_response_time], 
   	params[:your_response_time], params[:your_text_count], params[:her_text_count])
+  @wait_time = params[:she_likes_me]
   erb :result
 end
 
