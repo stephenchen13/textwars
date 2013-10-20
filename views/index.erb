@@ -1,95 +1,206 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
-    <link href="style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Wars</title>
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/css/application.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
-    <style>
-      .slider { width:460px; margin:10px;} 
-      .row {width:470px;}
-      form {width:470px;}
-    </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+    <script src="/js/application.js" type="text/javascript"></script>
   </head>
   <body>
-    <form action="/" method="post">
-      <div class="row">
-        <div id="she_likes_slider" class="slider"></div>
-        <label for="she_likes_me">How much do you think she likes you? (1-7)</label>
-        <input type="text" name="she_likes_me" id="she_likes_me" value="1"><br />
-      </div>
-      <div class="row">
-        <div id="you_like_slider" class="slider"></div>
-        <label for="you_like_her">How much do you like her? (1-7)</label>
-        <input type="text" name="you_like_her" id="you_like_her" value="1"><br />
-      </div>
-        <div id="your_rank_slider" class="slider"></div>
-        <label for="your_rank">How good looking are you? (1-7)</label>
-        <input type="text" name="your_rank" id="your_rank" value="1"><br />
-      <div class="row">
-        <div id="her_rank_slider" class="slider"></div>
-        <label for="her_rank">How good looking is she? (1-7)</label>
-        <input type="text" name="her_rank" id="her_rank" value="1"><br />
-      </div>
-      <div class="row">
-        <label for="her_response_time">How long did it take her to respond?</label>
-        <input type="text" name="her_response_time"><br />
-      </div>
-      <div class="row">
-        <label for="your_response_time">How long did it take you to respond last?</label>
-        <input type="text" name="your_response_time"><br />
-      </div>
-      <div class="row">
-        <label for="your_text_count">Total number of texts from you to her</label>
-        <input type="text" name="your_text_count"><br />
-      </div>
-      <div class="row">
-        <label for="her_text_count">Total number of texts from her to you</label>
-        <input type="text" name="her_text_count"><br />
-      </div>
-      <div class="row">
-        <input type="submit" value="Submit">
-      </div>
-    </form>
-
-    <script type="text/javascript">
-      $("#she_likes_slider").slider({
-        value: 1,
-        min: 1,
-        max: 7,
-        step: 1,
-        slide: function(event, ui) {
-          $("#she_likes_me").val(ui.value);
-        }
-      });
-      $("#you_like_slider").slider({
-        value: 1,
-        min: 1,
-        max: 7,
-        step: 1,
-        slide: function(event, ui) {
-          $("#you_like_her").val(ui.value);
-        }
-      });
-      $("#your_rank_slider").slider({
-        value: 1,
-        min: 1,
-        max: 7,
-        step: 1,
-        slide: function(event, ui) {
-          $("#your_rank").val(ui.value);
-        }
-      });
-      $("#her_rank_slider").slider({
-        value: 1,
-        min: 1,
-        max: 7,
-        step: 1,
-        slide: function(event, ui) {
-          $("#her_rank").val(ui.value);
-        }
-      });      
-    </script>
+    <div class="container">
+      <form action="/" method="post">
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="width: 12%">
+            </div>
+          </div>
+          <h3>How much do you think she likes you? (1-7)</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">7</h1>
+            <input class="answer" type="text" name="she_likes_me" id="she_likes_me" value="1"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-12">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+        </div>
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+            </div>
+          </div>
+          <h3 for="you_like_her">How much do you like her? (1-7)</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">4</h1>
+            <input type="text" class="answer" name="you_like_her" id="you_like_her" value="4"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width: 37%">
+            </div>
+          </div>
+          <h3 for="your_rank">How good looking are you? (1-7)</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">4</h1>
+            <input type="text" class="answer" name="your_rank" id="your_rank" value="1"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            </div>
+          </div>
+          <h3 for="her_rank">How good looking is she? (1-7)</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">4</h1>
+            <input type="text" class="answer" name="her_rank" id="her_rank" value="1"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question" data-time="true">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
+            </div>
+          </div>
+          <h3 for="her_response_time">How long did it take her to respond?</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">15 min</h1>
+            <input type="text" class="answer" name="her_response_time" value="15"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question" data-time="true">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+            </div>
+          </div>
+          <h3 for="your_response_time">How long did it take you to respond last?</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">15 min</h1>
+            <input type="text" class="answer" name="your_response_time" value="15"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%">
+            </div>
+          </div>
+          <h3 for="your_text_count">Total number of texts from you to her</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">1</h1>
+            <input type="text" class="answer" name="your_text_count" value="1"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-6">
+            <a class="btn btn-primary next">Next</a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-default prev">Prev</a>
+          </div>
+        </div>
+        <div class="row question">
+          <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            </div>
+          </div>
+          <h3 for="her_text_count">Total number of texts from her to you</h3>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="down glyphicon glyphicon-circle-arrow-down"></span>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+            <h1 class="value">1</h1>
+            <input type="text" class='answer' name="her_text_count" value="1"><br />
+          </div>
+          <div class="col-xs-3 col-sm-5 col-md-5">
+            <span class="up glyphicon glyphicon-circle-arrow-up"></span>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-12">
+            <input class="submit btn btn-success" type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
