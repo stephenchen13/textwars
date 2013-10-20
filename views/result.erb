@@ -1,1 +1,9 @@
-<%= @wait_time %>
+<div class="result">
+  Wait:
+  <h1><%= @wait_time %></h1>
+  <% if @wait_time.to_i == 1 %>
+    minute
+  <% else %>
+    minutes
+  <% end %>
+</div>

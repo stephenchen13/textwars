@@ -17,7 +17,7 @@ h3 {
   margin: 40px 0;
 }
 .glyphicon {
-  font-size: 40px;
+  font-size: 50px;
 }
 .value {
   text-align: center;
@@ -41,4 +41,11 @@ h3 {
 }
 .progress {
   margin-top: 20px;
+}
+.result {
+  margin: 40px 0;
+  text-align: center;
+}
+.result h1 {
+  margin: 20px 0;
 }
