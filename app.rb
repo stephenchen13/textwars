@@ -11,7 +11,6 @@ post '/' do
   @wait_time = AlgorithmHelper.calculate_wait(params[:she_likes_me], params[:you_like_her],
   	params[:your_rank], params[:her_rank], params[:her_response_time],
   	params[:your_response_time], params[:your_text_count], params[:her_text_count])
-  @wait_time = params[:she_likes_me]
   erb :result, :layout => :main_layout
 end
 
@@ -26,9 +25,21 @@ class AlgorithmHelper
 		}
 
 		def calculate_wait(she_likes_me, you_like_her, your_rank, her_rank, her_response_time, your_response_time, your_text_count, her_text_count)
-			(her_response_time.to_f * add_multipliers(she_likes_me, you_like_her, your_rank, her_rank) *
-			response_time_ratio(your_response_time, her_response_time) *
-			total_number_ratio(your_text_count, her_text_count)).round
+      she_likes_me = she_likes_me.to_i
+      you_like_her = you_like_her.to_i
+      your_rank = your_rank.to_i
+      her_rank = her_rank.to_i
+      her_response_time = her_response_time.to_i
+      your_response_time = your_response_time.to_i
+      your_text_count = your_text_count.to_i
+      her_text_count = her_text_count.to_i
+
+      first = her_response_time.to_f * add_multipliers(she_likes_me, you_like_her, your_rank, her_rank)
+      second = response_time_ratio(your_response_time, her_response_time)
+      third = total_number_ratio(your_text_count, her_text_count)
+
+      mediocre = (1 * (second + 1) * third).round
+      (first * (second + 1) * third).round
 		end
 
 		def add_multipliers(she_likes_me, you_like_her, your_rank, her_rank)
