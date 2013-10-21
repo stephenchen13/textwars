@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  window.addEventListener("load",function() {
+    setTimeout(function(){
+      window.scrollTo(0, 1);
+    }, 0);
+  });
+
   $('.up').click(function(e) {
     var question = $(this).parents('.question');
     var value = question.find('.value');
@@ -28,13 +34,13 @@ $(document).ready(function() {
     var newValue = value;
     if (isTime == null) {
       newValue = parseInt(value.text(), 10) - 1;
-      if (newValue < 0) {
-        newValue = 0; 
+      if (newValue < 1) {
+        newValue = 1; 
       }
     } else {
       newValue = parseInt(value.text(), 10) - 5;
-      if (newValue < 0) {
-        newValue = 0;
+      if (newValue < 1) {
+        newValue = 1;
       }
       newValue = newValue + " min";
     }
@@ -44,12 +50,12 @@ $(document).ready(function() {
   });
   $('.next').click(function(e) {
     var row = $(this).parents('.row'); 
-    row.hide();
-    row.next().show();
+    row.removeClass('current')
+    row.next().addClass('current')
   });
   $('.prev').click(function(e) {
     var row = $(this).parents('.row'); 
-    row.hide();
-    row.prev().show();
+    row.removeClass('current')
+    row.prev().addClass('current')
   });
 });
