@@ -36,7 +36,23 @@ class AlgorithmHelper
 		end
 
 		def response_time_ratio(your_response_time, her_response_time)
-			1 + (your_response_time.to_i == 0 ? 0 : (her_response_time.to_f - your_response_time.to_f) / your_response_time.to_f / 2)
+      min_your_response_time = your_response_time < 10 ? 10 : your_response_time
+      min_her_response_time = her_response_time < 10 ? 10 : her_response_time
+
+      if min_your_response_time + min_her_response_time > 60
+        if min_her_response_time > min_your_response_time
+          return 0.2
+        elsif min_her_response_time < min_your_response_time
+          return -0.2
+        else
+          return 0
+        end
+      elsif your_response_time + her_response_time < 30
+        return her_response_time.to_f / your_response_time / 10
+      else
+        return min_her_response_time.to_f / min_your_response_time / 10
+      end
+			#1 + (your_response_time.to_i == 0 ? 0 : (her_response_time.to_f - your_response_time.to_f) / your_response_time.to_f / 2)
 		end
 
 		def total_number_ratio(your_text_count, her_text_count)
