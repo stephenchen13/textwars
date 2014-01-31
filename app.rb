@@ -1,12 +1,17 @@
 # app.rb
 
 require 'sinatra'
+require 'sinatra/content_for'
 
 get '/' do
   erb :index, :layout => :main_layout
 end
 
-post '/' do
+get '/test' do
+  erb :test, :layout => :main_layout
+end
+
+post '/test' do
   # TODO: Read the message contents, save to the database
   @wait_time = AlgorithmHelper.calculate_wait(params[:she_likes_me], params[:you_like_her],
   	params[:your_rank], params[:her_rank], params[:her_response_time],
